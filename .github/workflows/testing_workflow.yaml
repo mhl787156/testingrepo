@@ -26,4 +26,5 @@ jobs:
           tag: ${{ steps.tag_version.outputs.tag }}
           name: Release ${{ steps.tag_version.outputs.tag }}
           allowUpdates: true
+          prerelease: ${{ steps.tag_version.outputs.is_pre_release }}
           
