@@ -25,3 +25,5 @@ jobs:
         with:
           tag: ${{ steps.tag_version.outputs.tag }}
           name: Release ${{ steps.tag_version.outputs.tag }}
+          allowUpdates: true
+          
