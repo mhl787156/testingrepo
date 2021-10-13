@@ -15,7 +15,6 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           release_branches: master
           pre_release_branches: dev
-          default_bump: false 
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         with:
