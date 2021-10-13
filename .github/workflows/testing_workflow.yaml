@@ -17,7 +17,7 @@ jobs:
           pre_release_branches: dev
           default_bump: false 
       - name: Create a GitHub release
-        if: ${{ steps.tag_version.outputs.new_tag != 'undefined' }} 
+        if: ${{ steps.tag_version.outputs.new_tag != undefined }} 
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
