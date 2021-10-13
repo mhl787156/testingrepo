@@ -18,7 +18,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           WITH_V: true
           RELEASE_BRANCHES: master
-          DEFAULT_BUMP: none
+          DEFAULT_BUMP: patch
+          DEFAULT_PRERELEASE_BUMP: none
           PRERELEASE_SUFFIX: dev
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
