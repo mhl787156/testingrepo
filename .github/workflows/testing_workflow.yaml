@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          fetch-depth: '1'
+          fetch-depth: '0'
       - name: Bump version and push tag
         id: tag_version
         uses: mhl787156/github-tag-action@master
@@ -21,8 +21,10 @@ jobs:
           DEFAULT_BUMP: patch
           DEFAULT_PRERELEASE_BUMP: none
           PRERELEASE_SUFFIX: dev
+          DRY_RUN: true
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
+        if: ${{ !steps.tag_version.outputs.is_pre_release }}
         with:
           tag: ${{ steps.tag_version.outputs.tag }}
           name: Release ${{ steps.tag_version.outputs.tag }}
