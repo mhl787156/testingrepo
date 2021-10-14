@@ -24,7 +24,7 @@ jobs:
           DRY_RUN: true
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
-        if: ${{ steps.tag_version.outputs.is_pre_release == 'false' }}
+        if: ${{ !steps.tag_version.outputs.is_pre_release }}
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
