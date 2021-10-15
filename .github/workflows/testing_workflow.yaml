@@ -30,7 +30,8 @@ jobs:
           
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
-        if: ${{ steps.tag_version.outputs.is_release }}
+        if: |
+          !failure() && !cancelled() && steps.tag_version.outputs.is_release
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: Release ${{ steps.tag_version.outputs.new_tag }}
