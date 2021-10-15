@@ -22,6 +22,12 @@ jobs:
           DEFAULT_PRERELEASE_BUMP: none
           PRERELEASE_SUFFIX: dev
           DRY_RUN: true
+      - name: Test Values output
+        run: |
+          echo "Is Release: ${{ steps.tag_version.outputs.is_release}}"
+          echo "Tag: ${{ steps.tag_version.outputs.tag}}"
+          echo "Tag: ${{ steps.tag_version.outputs.new_tag}}"
+          
       - name: Create a GitHub release
         uses: ncipollo/release-action@v1
         if: ${{ steps.tag_version.outputs.is_release }}
