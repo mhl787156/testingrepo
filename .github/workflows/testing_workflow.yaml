@@ -26,8 +26,8 @@ jobs:
         uses: ncipollo/release-action@v1
         if: ${{ steps.tag_version.outputs.is_release }}
         with:
-          tag: ${{ steps.tag_version.outputs.tag }}
-          name: Release ${{ steps.tag_version.outputs.tag }}
+          tag: ${{ steps.tag_version.outputs.new_tag }}
+          name: Release ${{ steps.tag_version.outputs.new_tag }}
           allowUpdates: true
           # prerelease: ${{ steps.tag_version.outputs.is_pre_release }}
           
